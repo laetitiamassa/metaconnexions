@@ -1,5 +1,5 @@
 <div class="container contact-card">
-    <div class="col-lg-6 col-lg-offset-3">
+    <div class="col-lg-8 col-lg-offset-2">
     	<div class="w with-padding">
     		<h3>Editez vos données de contact</h3>
     		<hr>
@@ -12,25 +12,124 @@
 
 		<div class="row">
 			<div class="col-md-6">
-				<%= f.input :name %>
-				<%= f.input :first_name %>
+				<%= f.text_field :name, :placeholder => "username (sans accent ni espace)", class: "form-control" %>
 			</div>
+
 			<div class="col-md-6">
-				<%= f.input :last_name %>
+				<%= f.file_field :avatar, :placeholder => "Votre photo", class: "form-control" %>
 			</div>
 		</div>
-		<%= f.input :avatar %>
+		<br>
 		<div class="row">
 			<div class="col-md-6">
-				<%= f.input :profession %>
+
+				<%= f.text_field :first_name, :placeholder => "Prénom", class: "form-control" %>
 			</div>
 			<div class="col-md-6">
-				<%= f.input :company %>
-				<%= f.input :is_boss %>
+				<%= f.text_field :last_name, :placeholder => "Nom", class: "form-control" %>
 			</div>
 		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<%= f.text_field :profession, :placeholder => "Fonction", class: "form-control" %>
+			</div>
+			<div class="col-md-6">
+				<%= f.text_field :company, :placeholder => "Société", class: "form-control" %>
+				<%= f.check_box :is_boss %> C'est ma société
+			</div>
+		</div>
+		
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<%= f.country_select :residency, {priority_countries: ["BE", "FR", "GB", "DE", "Congo, The Democratic Republic of the"]}, {class: "form-control"} %>
+			</div>
+			<div class="col-md-6">
+		<%= f.text_field :video_link, :placeholder => "Ajoutez une de vos vidéos Youtube ou Vimeo", class: "form-control" %>
+			</div>
+			
+		</div>
+		<hr>
 
-		<%= f.input :video_link %>
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+				  	<div class="input-group">
+				    	<span class="input-group-addon"> 
+				    		<span class="fa fa-phone"></span> 
+				    		
+				    	</span>
+				    	<%= f.text_field :telephone, class: "form-control input-sm", :placeholder => "telephone" %>
+				  	</div>
+		  		</div>
+		  	</div>
+		  	<div class="col-md-6">
+				
+					<div class="form-group">
+				  	<div class="input-group">
+				    	<span class="input-group-addon"> 
+				    		<span class="fa fa-link"></span> 
+					    	
+					    </span>
+				    	<%= f.text_field :website, class: "form-control input-sm", :placeholder => "website" %>
+				  	</div>
+					</div>
+				</div>
+			</div>
+	<div class="row">
+	<div class="col-md-6">
+
+					<div class="form-group">
+				  	<div class="input-group">
+				    	<span class="input-group-addon"> 
+				    		<span class="fa fa-linkedin"></span> 
+					    	
+					    </span>
+				    	<%= f.text_field :linkedin, class: "form-control input-sm", :placeholder => "linkedin" %>
+				  	</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+
+					<div class="form-group">
+				  	<div class="input-group">
+				    	<span class="input-group-addon"> 
+				    		<span class="fa fa-twitter"></span> 
+					    	
+					    </span>
+				    	<%= f.text_field :twitter, class: "form-control input-sm", :placeholder => "twitter" %>
+				  	</div>
+					</div>
+				</div>
+			</div>
+
+	<div class="row">
+	<div class="col-md-6">
+
+					<div class="form-group">
+				  	<div class="input-group">
+				    	<span class="input-group-addon"> 
+				    		<span class="fa fa-facebook"></span> 
+					    	
+					    </span>
+				    	<%= f.text_field :facebook, class: "form-control input-sm", :placeholder => "facebook" %>
+				  	</div>
+					</div>
+
+			</div>
+			<div class="col-md-6">
+			<div class="form-group">
+				  	<div class="input-group">
+				    	<span class="input-group-addon"> 
+				    		<span class="fa fa-instagram"></span> 
+					    	
+					    </span>
+				    	<%= f.text_field :instagram, class: "form-control input-sm", :placeholder => "instagram" %>
+				  	</div>
+					</div>
+				</div>
+			</div>
 
 		<div class="form-actions">
 		    <%= f.submit "Mettre à jour le profil", class: 'btn btn-primary btn-block btn-lg' %>
