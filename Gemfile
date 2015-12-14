@@ -14,6 +14,7 @@ gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
 gem 'paperclip'
+gem "auto_html"
 
 group :development, :test do
   gem 'byebug'

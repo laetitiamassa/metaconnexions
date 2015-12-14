@@ -1,5 +1,40 @@
-<%= simple_form_for(@user, :url => user_path, remote: true, :html => { :multipart => true }) do |f| %>
-<%= f.error_notification %>
+<div class="container contact-card">
+    <div class="col-lg-6 col-lg-offset-3">
+    	<div class="w with-padding">
+    		<h3>Editez vos données de contact</h3>
+    		<hr>
+		<%= simple_form_for(@user) do |f| %>
+		<%= f.error_notification %>
 
+		<% if current_user.is_meta %>
+		<%= f.input :is_validated %>
+		<% end %>
 
-<% end %>
+		<div class="row">
+			<div class="col-md-6 col-xs-6">
+				<%= f.input :first_name %>
+			</div>
+			<div class="col-md-6 col-xs-6">
+				<%= f.input :last_name %>
+			</div>
+		</div>
+		<%= f.input :avatar %>
+		<div class="row">
+			<div class="col-md-6 col-xs-6">
+				<%= f.input :profession %>
+			</div>
+			<div class="col-md-6 col-xs-6">
+				<%= f.input :company %>
+				<%= f.input :is_boss %>
+			</div>
+		</div>
+
+		<%= f.input :video_link %>
+
+		<div class="form-actions">
+		    <%= f.submit "Mettre à jour le profil", class: 'btn btn-primary btn-block btn-lg' %>
+		  </div>
+		<% end %>
+	</div>
+	</div>
+</div>
