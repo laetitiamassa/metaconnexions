@@ -1,3 +1,52 @@
+
+
+
+
+
+<div class="container contact-card">
+    <div class="col-lg-6 col-lg-offset-3">
+      <div class="w with-padding">
+        <h3>Ajoutez vos compétences</h3>
+        <hr>
+
+        <% @skill_names.each do |skill_name| %>
+          <%= skill_name.name %>
+          <%= simple_form_for(@skill) do |f| %>
+            
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.hidden_field :skill_name_id, :value => skill_name.id %>
+              <%= f.hidden_field :name, :value => skill_name.name %>
+              <%= f.hidden_field :how, :value => "Instruction" %>
+            
+
+            <div class="form-actions">
+              <%= f.submit "par diplôme"%>
+            </div>
+          <% end %>
+
+          <%= simple_form_for(@skill) do |f| %>
+            
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.hidden_field :skill_name_id, :value => skill_name.id %>
+              <%= f.hidden_field :name, :value => skill_name.name %>
+              <%= f.hidden_field :how, :value => "Pratique" %>
+            
+
+            <div class="form-actions">
+              <%= f.submit "par la pratique"%>
+            </div>
+          <% end %>
+        <% end %>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Skill Names</h1>

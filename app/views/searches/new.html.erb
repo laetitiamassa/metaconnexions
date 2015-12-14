@@ -1,0 +1,13 @@
+<h1>Recherche avancée</h1>
+
+<%= form_for @search do |s| %>
+  <div class="field">
+    <%= s.label :keywords %><br />
+    <%= s.text_field :keywords %>
+  </div>
+  <!--<%= s.label :category_id %><br />
+    <%= s.select :category, options_for_select(@categories), :include_blank => true %>-->
+  
+  <div class="actions"><%= s.submit "Search" %></div>
+  
+<% end %>

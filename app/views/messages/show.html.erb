@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @message.subject %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @message.body %>
+</p>
+
+<p>
+  <strong>Messagee:</strong>
+  <%= @message.messagee_id %>
+</p>
+
+<p>
+  <strong>Messagor email:</strong>
+  <%= @message.messagor_email %>
+</p>
+
+<p>
+  <strong>Messagor name:</strong>
+  <%= @message.messagor_name %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>

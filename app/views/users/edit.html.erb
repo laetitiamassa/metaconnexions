@@ -11,19 +11,20 @@
 		<% end %>
 
 		<div class="row">
-			<div class="col-md-6 col-xs-6">
+			<div class="col-md-6">
+				<%= f.input :name %>
 				<%= f.input :first_name %>
 			</div>
-			<div class="col-md-6 col-xs-6">
+			<div class="col-md-6">
 				<%= f.input :last_name %>
 			</div>
 		</div>
 		<%= f.input :avatar %>
 		<div class="row">
-			<div class="col-md-6 col-xs-6">
+			<div class="col-md-6">
 				<%= f.input :profession %>
 			</div>
-			<div class="col-md-6 col-xs-6">
+			<div class="col-md-6">
 				<%= f.input :company %>
 				<%= f.input :is_boss %>
 			</div>

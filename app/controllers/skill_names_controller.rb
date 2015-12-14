@@ -5,6 +5,9 @@ class SkillNamesController < ApplicationController
   # GET /skill_names.json
   def index
     @skill_names = SkillName.all
+    #@skill_names = SkillName.where([ 'name LIKE ?', '%#{params[:search]}%' ])
+    #@skill_names = SkillName.search(params[:search])
+    @skill = Skill.new
   end
 
   # GET /skill_names/1

@@ -1,0 +1,17 @@
+<h1>Search Result</h1>
+<%= @search.keywords %>
+<% if @search.search_skills.empty? %>
+	<p>No Records Found</p>
+<% else %>
+	<% @search.search_skills.each do |c| %>
+		<div>	
+			<p><%= link_to c.user.full_name, user_path(c.user) %>
+				(<% if c.how == "Pratique" %>
+					<i class="fa fa-briefcase"></i> par la pratique
+				<% elsif c.how == "Instruction" %>
+					<i class="fa fa-graduation-cap"></i> certifiée par diplôme
+				<% end %>)
+			</p>
+		</div>
+	<% end %>
+<% end %>

@@ -15,6 +15,9 @@ gem 'high_voltage'
 gem 'simple_form'
 gem 'paperclip'
 gem "auto_html"
+gem 'country_select', github: 'stefanpenner/country_select'
+gem 'friendly_id', '~> 5.1.0'
+gem 'impressionist'
 
 group :development, :test do
   gem 'byebug'

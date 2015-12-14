@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    # unless @user == current_user
-    #   redirect_to :back, :alert => "Access denied."
-    # end
+    #@user = User.find(params[:id])
+    #@user = User.find_by_username(params[:slug])
+    @user = User.friendly.find(params[:id])
+    @message = Message.new
   end
 
   def edit
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
 
     respond_to do |format|
       if @user.update(user_params)
@@ -35,12 +35,12 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :profession, :company, :video_link, :is_boss, :is_validated)
+      params.require(:user).permit(:name, :first_name, :last_name, :profession, :company, :video_link, :is_boss, :is_validated, :avatar, :slug)
     end
 
 end
