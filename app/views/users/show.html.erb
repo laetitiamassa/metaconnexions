@@ -7,7 +7,8 @@
     		<!-- ===== vCard Navigation ===== -->
     		<div class="row w">
     			<div class="col-md-4">
-    				<%= image_tag "LaetitiaMassa.jpg", class: "img-responsive" %>
+    				<%= image_tag @user.avatar.url, class: "img-responsive" %>
+
 					<ul class="nav nav-tabs nav-stacked" id="myTab">
 					  <li class="active"><a href="#about">About</a></li>
 					  <li><a href="#profile">Profile</a></li>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Interest Names</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interest_names.each do |interest_name| %>
+      <tr>
+        <td><%= interest_name.name %></td>
+        <td><%= link_to 'Show', interest_name %></td>
+        <td><%= link_to 'Edit', edit_interest_name_path(interest_name) %></td>
+        <td><%= link_to 'Destroy', interest_name, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interest name', new_interest_name_path %>

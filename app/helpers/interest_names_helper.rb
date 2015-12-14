@@ -1,0 +1,2 @@
+module InterestNamesHelper
+end

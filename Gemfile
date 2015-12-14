@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'paperclip'
 
 group :development, :test do
   gem 'byebug'

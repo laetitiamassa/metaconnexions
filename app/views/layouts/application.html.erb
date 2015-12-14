@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Metaconnexions" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Metaconnexions" %>">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Metaconnexions - The personal contacts app of a networking queen" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -15,11 +15,11 @@
   
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css.scss" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/main.css.scss" rel="stylesheet">
     
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
@@ -30,13 +30,17 @@
       <script src="assets/js/respond.min.js"></script>
     <![endif]-->
   </head>
+
+
   <body>
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <main role="main">
+    
+      <div class="container">
        <%= render 'layouts/messages' %>
        <%= yield %>
-    </main>
+     </div>
+    
   </body>
 </html>
