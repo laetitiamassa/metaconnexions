@@ -1,4 +1,6 @@
 class VisitorsController < ApplicationController
+	layout "special", :only => :home
+
 	def home
 		@search = Search.new
 		@skills = Skill.search(params[:search])

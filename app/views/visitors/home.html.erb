@@ -1,22 +1,52 @@
+<div class="black-bg">
 <div class="row">
 	<div class='col-md-8 col-md-offset-2 text-center'>
 <h2>Bénéficiez de mon réseau
-	<small><br>Indiquez une compétence, et vous découvrirez qui, parmi mes connexions, peut vous aider</small>
+	<small><br>Indiquez une compétence, et vous découvrirez qui, parmi mes connexions, pourrait vous aider</small>
 </h2>
 
-
+<div class="row">
 <%= form_for @search do |s| %>
+<div class="col-md-6 col-md-offset-3">
   <div class="form-group">
     
-    <%= s.text_field :keywords, class: "form-control" %>
+    <%= s.text_field :keywords, :placeholder => "exemple : droit, marketing, web,...", class: "form-control" %>
   </div>
   
   
-  <div class="actions"><%= s.submit "Search", class: "btn btn-primary btn-block"  %></div>
-  
+  <%= s.submit "Rechercher cette compétence", class: "btn btn-primary btn-block"  %>
+  </div>
+<% end %>
+</div>
+
+<% unless user_signed_in? %>
+<br>
+<h2>ou rejoignez mes connexions
+	<small><br>On s'est rencontrés il y a peu ? Connectez-vous et créez votre carte de visite virtuelle !</small>
+</h2>
+
+<%= link_to "S'inscrire en tant que connexion", new_user_registration_path, class: "btn btn-default" %>
 <% end %>
 </div>
 </div>
 
-<hr>
-Text + photo rounded Meta (big image en background recherche)
+</div>
+
+<div class="row text-center">
+	<div class="col-md-6 col-md-offset-3">
+	<%= image_tag "Meta.png", :size => "200x200", class: "img-circle" %>
+	
+		<h2 class="text-center"><small>Curieuse Positive Originale Réseauteuse Connecteuse</small></h2>
+		<h3 class="text-center">Bienvenue dans mon espace virtuel !</h3>
+<br>
+<p>On s’est rencontré dans notre enfance, pendant nos études, au travail, lors d’un voyage, lors d’événements ou en fonction de nos intérêts communs en ligne ? Je vous invite à me laisser vos coordonnées via ce site Internet qui regroupe mon carnet d’adresse. </p>
+<p>Je m'appelle Meta. Je suis de Belgique et originaire de la République Démocratique du Congo (RDC), atteinte de « schizophrénie culturelle » avec laquelle je vis très bien ;o).</p>
+<p>Curieuse, j'apprends en continu de mes expériences professionnelles et personnelles, en plus de celles des autres!</p>
+<p>Je vis et je rêve international, solidaire et en couleurs. Mes centres d’intérêt sont l’entreprenariat social, et dans ce sens l’empowerment, le leadership des jeunes, des femmes, des Africains sur le continent et de la diaspora ; l’innovation ; la consom’action.</p>
+<p>Je travaille depuis plus de 8 ans, en Belgique, dans une multinationale américaine opérant dans plus de 130 pays, dans tout secteur d’activité, dans les domaines d’interventions suivants: conseil en stratégie et organisation ; solutions technologiques ; digitalisation ; externalisation. Pour résumer mon parcours professionnel, j’y ai eu des missions différentes de support dans des projets d’externalisation chez nos clients et actuellement de support Business.</p>
+
+<h3 class="text-center">Restons connectés :</h3>
+<%= link_to "S'inscrire à MetaConnexions", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+
+</div>
+</div>

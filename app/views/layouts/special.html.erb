@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Metaconnexions" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Metaconnexions - The personal contacts app of a networking queen" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+  
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css.scss" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css.scss" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    
+      <div class="container">
+       <%= render 'layouts/messages' %>
+       
+     </div>
+
+     <%= yield %>
+    
+  </body>
+</html>
