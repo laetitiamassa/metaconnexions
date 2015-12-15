@@ -4,7 +4,7 @@
 <small><br><span class="whitey">Terme recherché : "<%= @search.keywords %>"</span></small>
 </h1>
 
-<%= link_to "Nouvelle recherche", root_path, class: "btn btn-link" %> 
+<%= link_to "Nouvelle recherche", root_path, class: "btn btn-link whitey" %> 
 </div>
 
 <div class="container">
@@ -18,9 +18,9 @@
 			<% if c.user.is_validated %>
 			<p class="lead">
 				<% if c.how == "Pratique" %>
-					<i class="fa fa-briefcase blue"></i> 
+					<i class="fa fa-briefcase dark-blue"></i> 
 				<% elsif c.how == "Instruction" %>
-					<i class="fa fa-graduation-cap blue"></i> 
+					<i class="fa fa-graduation-cap dark-blue"></i> 
 				<% end %>
 				<%= link_to c.user.full_name, user_path(c.user) %>
 				
