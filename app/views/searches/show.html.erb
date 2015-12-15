@@ -1,21 +1,44 @@
-<h1>Résultats de votre recherche</h1>
-<%= @search.keywords %>
+
+<div class="black-bg text-center">
+	<h1 class="whitey">Résultats de votre recherche sur MetaConnexions
+<small><br><span class="whitey">Terme recherché : "<%= @search.keywords %>"</span></small>
+</h1>
+
+<%= link_to "Nouvelle recherche", root_path, class: "btn btn-link" %> 
+</div>
+
+<div class="container">
+<div class="col-md-8 col-md-offset-2">
 <% if @search.search_skills.empty? %>
-	<p>No Records Found</p>
+	<p>Aucune connexion n'a cette compétence</p>
 <% else %>
 
 	<% @search.search_skills.each do |c| %>
-		<div>	
-			<p><%= link_to c.user.full_name, user_path(c.user) %>
-				(<% if c.how == "Pratique" %>
-					<i class="fa fa-briefcase"></i> par la pratique
+		<div>
+			<% if c.user.is_validated %>
+			<p class="lead">
+				<% if c.how == "Pratique" %>
+					<i class="fa fa-briefcase blue"></i> 
 				<% elsif c.how == "Instruction" %>
-					<i class="fa fa-graduation-cap"></i> certifiée par diplôme
-				<% end %>)
+					<i class="fa fa-graduation-cap blue"></i> 
+				<% end %>
+				<%= link_to c.user.full_name, user_path(c.user) %>
+				
+				<br><small>
+				<%= c.user.profession %>
+
+			</small>
 			</p>
+			<hr>
+			<% end %>
 		</div>
 	<% end %>
 <% end %>
+<div class="text-center">
+<%= link_to "Nouvelle recherche", root_path, class: "btn btn-primary btn-sm" %> 
+</div>
+</div>
+</div>
 
 
 

@@ -16,7 +16,7 @@
 					  <li><a href="#profile">Compétences</a></li>
 					  <li><a href="#portfolio">Centres d'intérêts</a></li>
 					  <li><a href="#contact">Contacter</a></li>
-					  <% if current_user.is_meta %>
+					  <% if user_signed_in? && current_user.is_meta %>
 					  <li><a href="#coordonnees">Coordonnées</a></li>
 					  <% end %>
 			</ul>    			
@@ -30,14 +30,14 @@
 				<div class="tab-pane active" id="about">
 					  	
 					<h3><%= @user.full_name %>
-						<% if @user == current_user %>
+						<% if user_signed_in? && @user == current_user %>
 						<small><%= link_to "modifier mon profil", edit_user_path(current_user), class: "btn btn-link pull-right dark-blue" %></small>
 						<% end %>
 					</h3>
 					<h5><%= @user.profession %>
 						<% if @user.is_boss && @user.company.present? %>
 						  chez <span class="dark-blue"><%= @user.company %></span>
-						<% elsif current_user.is_meta %>
+						<% elsif user_signed_in? && current_user.is_meta %>
 							chez <span class="dark-blue"><%= @user.company %></span>
 						<% end %>
 						<% if @user.residency.present? %>

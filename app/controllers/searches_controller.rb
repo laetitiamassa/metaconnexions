@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+	layout "special", :only => :show
 
 	def index
 		@searches = Search.order('created_at DESC')
