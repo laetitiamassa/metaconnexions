@@ -5,6 +5,9 @@ class VisitorsController < ApplicationController
 	end
 
 	def dashboard
+		@most_consulted = User.order('impressions_count DESC').take(3)
+		@most_contacted = User.order('messages_count DESC').take(3)
+
 		@users = User.all
 		@messages = Message.all 
 		@searches = Search.all

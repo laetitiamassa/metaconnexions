@@ -1,6 +1,8 @@
-Static homepage to come
-
-<h1>Recherche</h1>
+<div class="row">
+	<div class='col-md-8 col-md-offset-2 text-center'>
+<h2>Bénéficiez de mon réseau
+	<small><br>Indiquez une compétence, et vous découvrirez qui, parmi mes connexions, peut vous aider</small>
+</h2>
 
 
 <%= form_for @search do |s| %>
@@ -10,6 +12,11 @@ Static homepage to come
   </div>
   
   
-  <div class="actions"><%= s.submit "Search", class: "btn btn-default"  %></div>
+  <div class="actions"><%= s.submit "Search", class: "btn btn-primary btn-block"  %></div>
   
 <% end %>
+</div>
+</div>
+
+<hr>
+Text + photo rounded Meta (big image en background recherche)

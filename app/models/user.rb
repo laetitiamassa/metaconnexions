@@ -2,8 +2,7 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
 
-  is_impressionable
-
+  is_impressionable counter_cache: true
 
   has_many :skills
   has_many :skill_names, :through => :skills
@@ -30,6 +29,9 @@ class User < ActiveRecord::Base
     link :target => "_blank", :rel => "nofollow"
     simple_format
   end
+
+  scope :non_validated, lambda {where(:is_validated => false)}
+  scope :validated, lambda {where(:is_validated => true)}
 
   def full_name
   	"#{first_name} #{last_name}"

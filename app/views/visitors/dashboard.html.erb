@@ -25,19 +25,48 @@
 	</div>
 </div>
 <hr>
-<h3 class="page-header">Nouvelles connexions à valider</h3>
+<h3 class="page-header">Vos connexions à valider</h3>
+
+<ul class="list-group">
+<% @users.non_validated.each do |user| %>
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-md-5">
+				<b><%= link_to user.full_name, user %></b>
+			</div>
+			<div class="col-md-4">
+				<%= user.profession %> chez <%= user.company %>
+			</div>
+		<!-- <%= user.impressionist_count(:filter=>:all) %> -->
+		<div class="col-md-3">
+			<%= simple_form_for(user) do |f| %>
+			<%= f.hidden_field :is_validated, :value => true %>
+			<%= f.submit "Valider", class: "btn btn-default btn-block btn-sm" %>
+		<% end %>
+	</div>
+</div>
+</li>
+<% end %>
+</ul>
 
 <hr>
+
+
 <div class="row text-center">
-	<div class="col-md-4">
-Contacts les plus contactés
-</div>
-<div class="col-md-4">
+	<div class="col-md-6">
+		<h3 class="page-header">Vos connexions les plus vues</h3>
+		<% @most_consulted.each do |user| %>
+			<p><%= link_to user.full_name, user %> (profil consulté <%= user.impressions_count %> fois)</p> 
+		<% end %>
+		
+	</div>
+<div class="col-md-6">
 
-Compétences les plus recherchées
-</div>
-<div class="col-md-4">
+<h3 class="page-header">Vos connexions les plus contactées</h3>
+	<% @most_contacted.each do |user| %>
+		<p><%= link_to user.full_name, user %> (contacté <%= user.messages_count %> fois)</p> 
+	<% end %>
 
-Contacts les plus vus
 </div>
+
 </div>
