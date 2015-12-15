@@ -5,6 +5,8 @@ class InterestNamesController < ApplicationController
   # GET /interest_names.json
   def index
     @interest_names = InterestName.all
+    @interest = Interest.new
+    @interest_name = InterestName.new
   end
 
   # GET /interest_names/1
@@ -28,7 +30,7 @@ class InterestNamesController < ApplicationController
 
     respond_to do |format|
       if @interest_name.save
-        format.html { redirect_to @interest_name, notice: 'Interest name was successfully created.' }
+        format.html { redirect_to :back, notice: 'Interest name was successfully created.' }
         format.json { render :show, status: :created, location: @interest_name }
       else
         format.html { render :new }

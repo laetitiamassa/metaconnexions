@@ -1,4 +1,16 @@
+<td><%= link_to user.full_name, user, class: "btn btn-link" %>
+<td><i class="fa fa-at dark-blue"></i> <%= user.name %>
+<td><i class="fa fa-building dark-blue"></i> <%= user.profession %> chez <%= user.company %>
+<td><i class="fa fa-map-marker dark-blue"></i> <%= user.residency %>
+<td><i class="fa fa-eye dark-blue"></i> <%= user.impressionist_count %>
+<td><i class="fa fa-envelope dark-blue"></i> <%= user.messages_count %>
+
+
+
+
+<!--
 <td><%= link_to user.name, user %></td>
 <td><%= link_to user.email, user %></td>
 <td>vues : <%= user.impressionist_count %></td>
 <td>vues uniques : <%= user.impressionist_count(:filter=>:ip_address) %></td>
+-->

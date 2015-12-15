@@ -5,6 +5,7 @@ class InterestsController < ApplicationController
   # GET /interests.json
   def index
     @interests = Interest.all
+    
   end
 
   # GET /interests/1
@@ -28,7 +29,7 @@ class InterestsController < ApplicationController
 
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to @interest, notice: 'Interest was successfully created.' }
+        format.html { redirect_to :back, notice: 'Interest was successfully created.' }
         format.json { render :show, status: :created, location: @interest }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class InterestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interest_params
-      params.require(:interest).permit(:interest_name_id, :user_id)
+      params.require(:interest).permit(:interest_name_id, :user_id, :name, :how)
     end
 end

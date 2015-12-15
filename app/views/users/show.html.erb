@@ -31,7 +31,9 @@
 					  	
 					<h3><%= @user.full_name %>
 						<% if user_signed_in? && @user == current_user %>
-						<small><%= link_to "modifier mon profil", edit_user_path(current_user), class: "btn btn-link pull-right dark-blue" %></small>
+						<small>
+							<%= link_to "modifier mon profil", edit_user_path(current_user), class: "btn btn-link pull-right dark-blue" %>
+						</small>
 						<% end %>
 					</h3>
 					<h5><%= @user.profession %>
@@ -46,7 +48,7 @@
 					</h5>
 					<hr>
 						  	
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> 
+					<p><%= @user.description %></p> 
 						
 					<%= @user.video_link_html %>
 				</div><!-- tab about -->
@@ -54,16 +56,22 @@
 	    	<!-- ===== Second Tab ===== -->
 				<div class="tab-pane" id="profile">
 					  	
-					<h3>Compétences</h3>
+					<h3>Compétences
+						<% if user_signed_in? && @user == current_user %>
+						<small>
+							<%= link_to "ajouter mes compétences", skills_path, class: "btn btn-link pull-right dark-blue" %>
+						</small>
+						<% end %>
+					</h3>
 					<hr>
 					  	
-					<h4><i class="fa fa-briefcase"></i>  Acquises la pratique</h4>
+					<h4><i class="fa fa-briefcase dark-blue"></i>  Acquises la pratique</h4>
 					<% @user.skills.practical.each do |skill| %>
 						<span class="label label-primary"><%= skill.name %></span>
 					  	
 					<% end %>
 					  
-					<h4><i class="fa fa-graduation-cap"></i> Attestées par diplôme</h4>
+					<h4><i class="fa fa-graduation-cap dark-blue"></i> Acquises par diplôme</h4>
 					<% @user.skills.certified.each do |skill| %>
 						<span class="label label-primary"><%= skill.name %></span>
 					  	
@@ -73,10 +81,23 @@
 					  
 	    	<!-- ===== Third Tab ===== -->
 				<div class="tab-pane" id="portfolio">
-					<h3><i class="fa fa-heart"></i> Centres d'intérêts</h3>
+					<h3>Centres d'intérêts
+						<% if user_signed_in? && @user == current_user %>
+						<small>
+							<%= link_to "ajouter mes centres d'intérêt", interests_path, class: "btn btn-link pull-right dark-blue" %>
+						</small>
+						<% end %>
+					</h3>
 					<hr>
+
+					<h4><i class="fa fa-heart dark-blue"></i>  Intérêt par le coeur</h4>
+					<% @user.interests.by_heart.each do |interest| %>
+						<span class="label label-primary"><%= interest.name %></span>
 					  	
-					<% @user.interests.each do |interest| %>
+					<% end %>
+					  
+					<h4><i class="fa fa-cogs dark-blue"></i> Intérêt par l'action</h4>
+					<% @user.interests.by_acts.each do |interest| %>
 						<span class="label label-primary"><%= interest.name %></span>
 					  	
 					<% end %>

@@ -2,7 +2,7 @@
 	<li><%= link_to 'Messages', messages_path %></li>
   <li><%= link_to 'Profil', user_path(current_user) %></li>
   <% if current_user.is_meta %>
-  <li><%= link_to 'Mes contacts', users_path %></li>
+  <li><%= link_to 'Mes connexions', users_path %></li>
   <li><%= link_to 'Tableau de bord', dashboard_path %></li>
 <% end %>
   <li><%= link_to 'Déconnexion', destroy_user_session_path, :method=>'delete' %></li>

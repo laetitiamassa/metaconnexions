@@ -7,7 +7,8 @@
 		<%= f.error_notification %>
 
 		<% if current_user.is_meta %>
-		<%= f.input :is_validated %>
+		
+		<%= f.check_box :is_validated %> Validé<br>
 		<% end %>
 
 		<div class="row">
@@ -29,6 +30,8 @@
 				<%= f.text_field :last_name, :placeholder => "Nom", class: "form-control" %>
 			</div>
 		</div>
+		<br>
+		<%= f.text_area :description, :placeholder => "Dites-en un peu plus sur vous", class: "form-control", rows: 2 %>
 		<br>
 		<div class="row">
 			<div class="col-md-6">

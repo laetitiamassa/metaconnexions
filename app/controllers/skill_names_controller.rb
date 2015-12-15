@@ -8,6 +8,7 @@ class SkillNamesController < ApplicationController
     #@skill_names = SkillName.where([ 'name LIKE ?', '%#{params[:search]}%' ])
     #@skill_names = SkillName.search(params[:search])
     @skill = Skill.new
+    @skill_name = SkillName.new
   end
 
   # GET /skill_names/1
@@ -31,7 +32,7 @@ class SkillNamesController < ApplicationController
 
     respond_to do |format|
       if @skill_name.save
-        format.html { redirect_to @skill_name, notice: 'Skill name was successfully created.' }
+        format.html { redirect_to :back, notice: 'Skill name was successfully created.' }
         format.json { render :show, status: :created, location: @skill_name }
       else
         format.html { render :new }

@@ -1,27 +1,93 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Interest Names</h1>
+<h1 class="page-header">Ajoutez vos centres d'intérêts</h1>
+        
+  <div class="row">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-md-6">
+            
+      <h3 class="page-header text-center">
+        Vos centres d'intérêts par le coeur
+        <br><small>ce qui vous tient à coeur, sans que vous y soyiez actif</small>
+      </h3>
 
-  <tbody>
-    <% @interest_names.each do |interest_name| %>
-      <tr>
-        <td><%= interest_name.name %></td>
-        <td><%= link_to 'Show', interest_name %></td>
-        <td><%= link_to 'Edit', edit_interest_name_path(interest_name) %></td>
-        <td><%= link_to 'Destroy', interest_name, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% current_user.interests.where(:how => "Par le coeur").each do |interest| %>
+        <span class="label label-primary"><%= interest.name %></span>
+      <% end %>
+      <hr>
+
+      <% @interest_names.each do |interest_name| %>
+              
+        <% unless current_user.interests.where(:interest_name_id => interest_name.id, :how => "Par le coeur").any? %>
+        
+        
+             <div class="col-md-4">   
+          
+                
+          <%= simple_form_for(@interest) do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :interest_name_id, :value => interest_name.id %>
+            <%= f.hidden_field :name, :value => interest_name.name %>
+            <%= f.hidden_field :how, :value => "Par le coeur" %>
+            <%= f.submit "#{interest_name.name}", class: "btn btn-default btn-sm btn-block" %>
+          <% end %>
+        </div>
+        <% end %>
+      <% end %>
+
+      
+
+    </div>
+
+    <div class="col-md-6">
+            
+      <h3 class="page-header text-center">
+        Vos centres d'intérêts par l'action
+        <br><small>ceux pour lesquels vous êtes actuellement actif</small>
+      </h3>
+
+      <% current_user.interests.where(:how => "Par l'action").each do |interest| %>
+        <span class="label label-primary"><%= interest.name %></span>
+      <% end %>
+      <hr>
+
+      <% @interest_names.each do |interest_name| %>
+              
+        <% unless current_user.interests.where(:interest_name_id => interest_name.id, :how => "Par l'action").any? %>
+        <div class="col-md-4">        
+          <%= simple_form_for(@interest) do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :interest_name_id, :value => interest_name.id %>
+            <%= f.hidden_field :name, :value => interest_name.name %>
+            <%= f.hidden_field :how, :value => "Par l'action" %>
+            <%= f.submit "#{interest_name.name}", class: "btn btn-default btn-sm btn-block" %>
+          <% end %>
+        </div>
+        
+        <% end %>
+      <% end %>
+
+
+    </div>
+  
+  </div>
+
+        
+
+        
 
 <br>
+<hr>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <p class="lead text-center">Votre centre d'intérêt ne s'y trouve pas ? <br>Créez-le (vous pourrez ensuite l'ajouter) :</p>
+      
+      <%= simple_form_for(@interest_name) do |f| %>
+        <%= f.error_notification %>
 
-<%= link_to 'New Interest name', new_interest_name_path %>
+        <%= f.text_field :name, :placeholder => "ex : entrepreneuriat social", class: "form-control input-sm" %>
+        <br>
+        <%= f.submit "Créer un nouveau centre d'intérêt", class: "btn btn-primary btn-sm btn-block" %>
+       
+      <% end %>
+    </div>
+    </div>
