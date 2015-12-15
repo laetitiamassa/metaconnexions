@@ -4,6 +4,7 @@
   <div class="form-inputs">
     <%= f.input :interest_name_id %>
     <%= f.input :user_id %>
+    <%= f.select :how, options_for_select(["De coeur","D'actions"],:disabled => ["De quelle manière ?"]) %>
   </div>
 
   <div class="form-actions">

@@ -40,17 +40,31 @@
 			</div>
 		</div>
 		
-		<br>
+		<hr>
 		<div class="row">
 			<div class="col-md-6">
-				<%= f.country_select :residency, {priority_countries: ["BE", "FR", "GB", "DE", "Congo, The Democratic Republic of the"]}, {class: "form-control"} %>
+				<div class="form-group">
+				  	<div class="input-group">
+				    	<span class="input-group-addon"> 
+				    		<span class="fa fa-map-marker"></span>
+				    	</span>
+						<%= f.country_select :residency, {priority_countries: ["BE", "FR", "GB", "DE", "Congo, The Democratic Republic of the"]}, {class: "form-control input-sm"} %>
+					</div>
+		  		</div>
 			</div>
 			<div class="col-md-6">
-		<%= f.text_field :video_link, :placeholder => "Ajoutez une de vos vidéos Youtube ou Vimeo", class: "form-control" %>
+				<div class="form-group">
+				  	<div class="input-group">
+				    	<span class="input-group-addon"> 
+				    		<span class="fa fa-youtube"></span>
+				    	</span>
+						<%= f.text_field :video_link, :placeholder => "Ajoutez votre vidéo Youtube ou Vimeo", class: "form-control input-sm" %>
+					</div>
+				</div>
 			</div>
 			
 		</div>
-		<hr>
+		
 
 <div class="row">
 	<div class="col-md-6">

@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   has_many :interests
   has_many :interest_names, :through => :interests
 
-  has_many :messages
+  has_many :messages, :class_name => 'Message', :foreign_key => 'messagee_id'
+  #has_many :notifications_as_notifiee, :class_name=> 'Notification', :foreign_key => 'notifiee_id'
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -27,15 +28,12 @@ class User < ActiveRecord::Base
     simple_format
   end
 
-
-
-  
-
   def full_name
   	"#{first_name} #{last_name}"
   end
 
   def is_meta
-  	email == "metanc@gmail.com"
+  	#email == "metanc@gmail.com"
+    email == "lol2@lol.com"
   end
 end

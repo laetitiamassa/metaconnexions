@@ -1,35 +1,50 @@
-<p id="notice"><%= notice %></p>
+<h1>Messages</h1>
 
-<h1>Listing Messages</h1>
+<ul class="list-group">
+  <li class="list-group-item disabled">
+    <div class="row">
+        <div class="col-md-2">
+          
+        <b>De :</b> 
+      </div>
+      <div class="col-md-3">
 
-<table>
-  <thead>
-    <tr>
-      <th>Subject</th>
-      <th>Body</th>
-      <th>Messagee</th>
-      <th>Messagor email</th>
-      <th>Messagor name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <b>Sujet :</b> 
+      </div>
+      <div class="col-md-5">
+        <b>Message :</b>
+      </div>
+      <div class="col-md-2">
+        <b>Date :</b>
+      </div>
+        
+    </div>
+  </li>
+  <% current_user.messages.each do |message| %>
+  <li class="list-group-item">
+    <div class="row">
+        <div class="col-md-2">
+          
+         <b><%= message.messagor_name %></b>
+        <%= message.messagor_email %>
+      </div>
+      <div class="col-md-3">
 
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.subject %></td>
-        <td><%= message.body %></td>
-        <td><%= message.messagee_id %></td>
-        <td><%= message.messagor_email %></td>
-        <td><%= message.messagor_name %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+         <b><%= message.subject %></b>
+      </div>
+      <div class="col-md-5">
+        <%= message.body %>
+      </div>
+       <div class="col-md-2">
+        <%= message.created_at.strftime("%d/%m/%Y à %H:%m") %>
+      </div>
+      
+        
+    </div>
+  </li>
+  
+  <% end %>
+</ul>
 
-<br>
 
-<%= link_to 'New Message', new_message_path %>
+

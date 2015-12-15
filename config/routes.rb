@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :searches
 
   root to: 'visitors#home'
+  get 'dashboard' => 'visitors#dashboard'
   
   devise_for :users
   resources :users
