@@ -59,7 +59,7 @@
 					<h3>Compétences
 						<% if user_signed_in? && @user == current_user %>
 						<small>
-							<%= link_to "ajouter mes compétences", skills_path, class: "btn btn-link pull-right dark-blue" %>
+							<%= link_to "ajouter mes compétences", skill_names_path, class: "btn btn-link pull-right dark-blue" %>
 						</small>
 						<% end %>
 					</h3>
@@ -84,7 +84,7 @@
 					<h3>Centres d'intérêts
 						<% if user_signed_in? && @user == current_user %>
 						<small>
-							<%= link_to "ajouter mes centres d'intérêt", interests_path, class: "btn btn-link pull-right dark-blue" %>
+							<%= link_to "ajouter mes centres d'intérêt", interest_names_path, class: "btn btn-link pull-right dark-blue" %>
 						</small>
 						<% end %>
 					</h3>
