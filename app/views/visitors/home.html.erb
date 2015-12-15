@@ -1,8 +1,8 @@
 <div class="black-bg">
 <div class="row">
 	<div class='col-md-8 col-md-offset-2 text-center'>
-<h2>Bénéficiez de mon réseau
-	<small><br>Indiquez une compétence, et vous découvrirez qui, parmi mes connexions, pourrait vous aider</small>
+<h2 class="whitey">Bénéficiez de mon réseau
+	<small><br><span class="whitey">Indiquez une compétence, et vous découvrirez qui, parmi mes connexions, pourrait vous aider</span></small>
 </h2>
 
 <div class="row">
@@ -22,7 +22,7 @@
 <% unless user_signed_in? %>
 <br>
 <h2>ou rejoignez mes connexions
-	<small><br>On s'est rencontrés il y a peu ? Connectez-vous et créez votre carte de visite virtuelle !</small>
+	<small><br><span class="whitey">On s'est rencontrés il y a peu ? Connectez-vous et créez votre carte de visite virtuelle !</span></small>
 </h2>
 
 <%= link_to "S'inscrire en tant que connexion", new_user_registration_path, class: "btn btn-default" %>
