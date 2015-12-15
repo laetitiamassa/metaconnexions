@@ -1,9 +1,14 @@
 class SearchesController < ApplicationController
 
+	def index
+		@searches = Search.order('created_at DESC')
+	end
+
 	def new
 	  @search = Search.new
 	  #@categories = Book.uniq.pluck(:category)
 	end
+
 	def create
 	  @search = Search.create(search_params)
 	  redirect_to @search

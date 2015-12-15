@@ -1,1 +1,15 @@
 Static homepage to come
+
+<h1>Recherche</h1>
+
+
+<%= form_for @search do |s| %>
+  <div class="form-group">
+    
+    <%= s.text_field :keywords, class: "form-control" %>
+  </div>
+  
+  
+  <div class="actions"><%= s.submit "Search", class: "btn btn-default"  %></div>
+  
+<% end %>

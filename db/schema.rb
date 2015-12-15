@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214224839) do
+ActiveRecord::Schema.define(version: 20151215075337) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -25,6 +25,31 @@ ActiveRecord::Schema.define(version: 20151214224839) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "view_name"
+    t.string   "request_hash"
+    t.string   "ip_address"
+    t.string   "session_hash"
+    t.text     "message"
+    t.text     "referrer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
+  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
 
   create_table "interest_names", force: :cascade do |t|
     t.string   "name"
@@ -106,10 +131,17 @@ ActiveRecord::Schema.define(version: 20151214224839) do
     t.string   "slug"
     t.string   "residency"
     t.text     "description"
+    t.integer  "views_count"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true
+
+  create_table "views", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

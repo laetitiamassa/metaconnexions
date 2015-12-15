@@ -3,24 +3,24 @@
 <div class="row text-center">
 	<div class="col-md-3">
 		<div class="jumbotron">
-			<h1>3 <small><br>connexions</small></h1>
+			<h1><%= @users.count %> <small><br><%= link_to 'connexions', users_path %></small></h1>
 		</div>
 	</div>
 	<div class="col-md-3">
 		<div class="jumbotron">
 			
-			<h1>7 <small><br>messages</small></h1>
+			<h1><%= @messages.count %> <small><br><%= link_to 'messages', messages_path %></small></h1>
 		</div>
 	</div>
 	<div class="col-md-3">
 		<div class="jumbotron">
 		
-			<h1>13 <small><br>recherches</small></h1>
+			<h1><%= @searches.count %> <small><br><%= link_to 'recherches', searches_path %></small></h1>
 		</div>
 	</div>
 	<div class="col-md-3">
 		<div class="jumbotron">
-			<h1>145 <small><br>vues</small></h1>
+			<h1><%= @impressions.count %> <small><br>vues</small></h1>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,10 @@
+<h1 class="page-header">Recherches effectuées
+	<small><br>Cliquez sur une recherche pour en découvrir les résultats</small>
+</h1>
+
+<% @searches.each do |search| %>
+<div class="col-md-4">
+	<h4><%= link_to search.keywords, search %>
+<small>(<%= search.search_skills.count %> résultats)</small></h4>
+</div>
+<% end %>

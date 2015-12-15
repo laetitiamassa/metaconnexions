@@ -1,2 +1,4 @@
 <td><%= link_to user.name, user %></td>
 <td><%= link_to user.email, user %></td>
+<td>vues : <%= user.impressionist_count %></td>
+<td>vues uniques : <%= user.impressionist_count(:filter=>:ip_address) %></td>

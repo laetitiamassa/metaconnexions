@@ -97,8 +97,12 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     high_voltage (2.4.0)
+    httpclient (2.7.0.1)
     i18n (0.7.0)
     i18n_data (0.7.0)
+    impressionist (1.5.1)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.5)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -223,6 +227,7 @@ DEPENDENCIES
   devise
   friendly_id (~> 5.1.0)
   high_voltage
+  impressionist
   jbuilder (~> 2.0)
   jquery-rails
   paperclip

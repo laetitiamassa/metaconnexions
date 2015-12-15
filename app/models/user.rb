@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
 
+  is_impressionable
+
+
   has_many :skills
   has_many :skill_names, :through => :skills
 

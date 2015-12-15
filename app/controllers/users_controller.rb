@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:show]
+  #impressionist :actions => [:show]
 
   def index
     @users = User.all
   end
 
   def show
-    #@user = User.find(params[:id])
-    #@user = User.find_by_username(params[:slug])
     @user = User.friendly.find(params[:id])
     @message = Message.new
+
+    impressionist(@user)
   end
 
   def edit
