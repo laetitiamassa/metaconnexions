@@ -70,6 +70,23 @@ Rails.application.configure do
     }
   }
 
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'metaconnexions.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+
+  #for email notifications
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587,
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => ENV['MANDRILL_USERNAME'],
+    :password  => ENV['MANDRILL_API_KEY'], # SMTP password is any valid API key
+    :authentication => 'login',
+    :domain => 'metaconnexions.com'
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
