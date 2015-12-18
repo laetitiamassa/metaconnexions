@@ -10,7 +10,9 @@
 <div class="container">
 <div class="col-md-8 col-md-offset-2">
 <% if @search.search_skills.empty? %>
-	<p>Aucune connexion n'a cette compétence</p>
+	<p class="lead text-center">Il n'y pas encore de connexion qui ait cette compétence.
+		<br>Vous peut-être plus de chance plus tard.
+	</p>
 <% else %>
 
 	<% @search.search_skills.each do |c| %>
