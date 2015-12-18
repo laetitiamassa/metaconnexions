@@ -33,7 +33,6 @@ $navbar-default-bg:         white;
 }
 
 .black-bg {
-	
 	background-image: url(image-path('networking-bg.jpeg'));
 	background-align: center;
   	background-repeat: no-repeat;
@@ -43,6 +42,10 @@ $navbar-default-bg:         white;
 	margin-top: -30px;
 	margin-bottom: 30px;
 	h2 {color: white; }
+}
+
+.search-bg {
+	min-height: 200px;
 }
 
 .whitey {
