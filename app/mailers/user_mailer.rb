@@ -1,15 +1,23 @@
 class UserMailer < ApplicationMailer
-  default from: 'contact@metaconnexions.com'
+  default from: 'MetaConnexions <contact@metaconnexions.com>'
  
-  def contact_sender(user)
-    @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  def contact_sender(message, sender)
+    @message = message
+    @sender = @message.messagor_email
+    #@url  = 'http://example.com/login'
+    mail(
+      to: @sender, 
+      subject: 'Votre message à #{@message.messagee.full_name}'
+      )
   end
 
-  def contact_receiver(user)
+  def contact_receiver(message, user)
+    @message = message
     @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    @url  = 'http://localhost:3000/messages'
+    mail(
+      to: @message.messagee.email, 
+      subject: 'Une opportunité pour vous'
+      )
   end
 end

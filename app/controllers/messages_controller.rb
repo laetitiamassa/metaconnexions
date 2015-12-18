@@ -30,6 +30,11 @@ class MessagesController < ApplicationController
       if @message.save
         format.html { redirect_to :back, notice: 'Votre message a bien ete envoye.' }
         format.json { render :show, status: :created, location: @message }
+
+        unless @message.messagor_email.blank? 
+          UserMailer.contact_receiver(@message, @message.messagee.email).deliver
+          UserMailer.contact_sender(@message, @message.messagor_email).deliver
+        end
       else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
