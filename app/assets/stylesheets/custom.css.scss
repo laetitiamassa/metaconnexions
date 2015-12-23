@@ -6,7 +6,7 @@
 @import url(http://fonts.googleapis.com/css?family=Montez|Merienda+One|Loved+by+the+King);
 
 .navbar-inverse {
-	background-color: #336699;
+	background-color: rgba(0,0,0, 0.1);
 	border-color: transparent;
 }
 
@@ -56,6 +56,12 @@
 	margin-top: -70px;
 	margin-bottom: 30px;
 	h2 {color: white; }
+}
+
+.second-bg {
+	background-color: rgba(0,0,0, 0.4);
+	padding: 20px;
+	margin-top: -115px;
 }
 
 .search-bg {
