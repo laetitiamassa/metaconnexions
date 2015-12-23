@@ -68,12 +68,21 @@
 }
 
 .search-bg {
-	min-height: 200px;
-	background-image: url(image-path('meta_search.png'));
+	background-color: #3975a6;
+	background-align: center;
+  	background-repeat: no-repeat;
+  	min-height: 200px;
+	padding-bottom: 40px;
+	padding-top: 90px;
+	margin-top: -70px;
+	margin-bottom: 30px;
+	margin-right: -20px;
+	h2 {color: white; }
 }
 
 .whitey {
 	color: white;
+	
 }
 
 .bigger {
