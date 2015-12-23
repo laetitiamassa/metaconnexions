@@ -3,7 +3,10 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Montez|Merienda+One|Loved+by+the+King);
 
-$navbar-default-bg:         white;
+.navbar-inverse {
+	background-color: transparent;
+	border-color: transparent;
+}
 
 .blue {
 	color: #2980b9;
@@ -36,10 +39,10 @@ $navbar-default-bg:         white;
 	background-image: url(image-path('meta_bg.png'));
 	background-align: center;
   	background-repeat: no-repeat;
-  	min-height: 600px;
+  	min-height: 615px;
 	padding-bottom: 40px;
 	padding-top: 90px;
-	margin-top: -30px;
+	margin-top: -70px;
 	margin-bottom: 30px;
 	h2 {color: white; }
 }
@@ -61,8 +64,7 @@ $navbar-default-bg:         white;
 @media screen and (min-width: 480px) {
   .upper {
 	margin-top: -120px;
-}
-  
+	} 
 }
 
 
