@@ -1,3 +1,5 @@
+
+
 /* import Google fonts */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
@@ -7,6 +9,15 @@
 	background-color: transparent;
 	border-color: transparent;
 }
+
+.navbar-inverse .navbar-brand {
+	color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: white;
+}
+
 
 .blue {
 	color: #2980b9;
