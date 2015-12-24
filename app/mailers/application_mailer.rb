@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "contact@metaconnexions.com"
+  default from: "welcome@metaconnexions.com"
   layout 'mailer'
 end

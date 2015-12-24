@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'MetaConnexions <contact@metaconnexions.com>'
+  default from: 'MetaConnexions <welcome@metaconnexions.com>'
  
   def contact_sender(message, sender)
     @message = message
