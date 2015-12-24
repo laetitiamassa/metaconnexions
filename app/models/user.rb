@@ -39,6 +39,6 @@ class User < ActiveRecord::Base
 
   def is_meta
   	#email == "metanc@gmail.com"
-    email == "lol2@lol.com"
+    email == "destenygirl@hotmail.com"
   end
 end
