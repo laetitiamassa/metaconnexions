@@ -1,5 +1,6 @@
 class SkillNamesController < ApplicationController
   before_action :set_skill_name, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /skill_names
   # GET /skill_names.json

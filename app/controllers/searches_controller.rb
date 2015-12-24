@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
 	layout "special", :only => :show
+	before_action :authenticate_user!, :only => [:index]
 
 	def index
 		@searches = Search.order('created_at DESC')
@@ -14,6 +15,7 @@ class SearchesController < ApplicationController
 	  @search = Search.create(search_params)
 	  redirect_to @search
 	end
+
 	def show
 	  @search = Search.find(params[:id])
 	end

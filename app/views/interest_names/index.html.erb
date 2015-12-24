@@ -7,7 +7,7 @@
             
       <h3 class="page-header text-center">
         Vos centres d'intérêts par le coeur
-        <br><small>ce qui vous tient à coeur, sans que vous y soyiez actif</small>
+        <br><small>ce qui vous tient à coeur, sans que vous y soyez actif</small>
       </h3>
 
       <% current_user.interests.where(:how => "Par le coeur").each do |interest| %>

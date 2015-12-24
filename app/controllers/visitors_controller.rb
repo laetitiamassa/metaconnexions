@@ -1,5 +1,6 @@
 class VisitorsController < ApplicationController
 	layout "special", :only => :home
+	before_action :authenticate_user!, :only => [:dashboard]
 
 	def home
 		@search = Search.new
