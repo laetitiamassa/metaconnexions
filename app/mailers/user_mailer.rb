@@ -7,14 +7,15 @@ class UserMailer < ApplicationMailer
     #@url  = 'http://example.com/login'
     mail(
       to: @sender, 
-      subject: 'Votre message à #{@message.messagee.full_name}'
+      subject: 'Votre message via MetaConnexions'
+
       )
   end
 
   def contact_receiver(message, user)
     @message = message
     @user = user
-    @url  = 'http://localhost:3000/messages'
+    @url  = 'http://metaconnexions.com/messages'
     mail(
       to: @message.messagee.email, 
       subject: 'Une opportunité pour vous'
