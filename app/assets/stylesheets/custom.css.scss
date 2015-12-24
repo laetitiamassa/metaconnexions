@@ -100,10 +100,29 @@
 
 @media screen and (max-width: 480px) {
   .black-bg {
-	margin-right: -70px;
+	margin-right: -20px;
+	padding-top: 100px;
 	} 
 
 }
+
+@media screen and (max-width: 480px) {
+  .navbar {
+	margin-right: 0px;
+	
+	} 
+
+}
+
+@media screen and (max-width: 480px) {
+  .second-bg {
+	margin-right: -20px;
+	padding-left: 10px;
+	margin-top: -192px;
+	} 
+
+}
+
 
 
 
